@@ -80,7 +80,7 @@ namespace Pomodoro.Model
             set
             {
                 _currentStatus = value;
-                OnPropertyChanged("Status");
+                OnPropertyChanged("CurrentStatus");
             }
         }
 

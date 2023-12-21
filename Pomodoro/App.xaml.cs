@@ -1,6 +1,4 @@
-﻿using Pomodoro.ModelView;
-using Pomodoro.View;
-
+﻿using Pomodoro.View;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
