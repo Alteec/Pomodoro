@@ -85,12 +85,12 @@ namespace Pomodoro.Model
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
+        public event PropertyChangedEventHandler PropertyChanged; //Событие для контроля подписанных на изменения свойств(binding XAML)
+        private void OnPropertyChanged(string propertyName) //Релизация изменения события для обновления интерфейса
         {
-            if (PropertyChanged != null)
+            if (PropertyChanged != null) //Проверка подписанных свойств
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName)); //Обновления подписанных свойств в интерфейсе MainPage.xaml на измененные значения
             }
         }
 

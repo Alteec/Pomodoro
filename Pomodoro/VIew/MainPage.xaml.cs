@@ -14,11 +14,11 @@ namespace Pomodoro.View
         public MainWindow()
         {
             InitializeComponent();
-            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Interval = new TimeSpan(0, 0, 1); 
             timer.Tick += TickEvent;
             DataContext = pomodoro;
         }
-        private void TickEvent(object sender, object e)
+        private void TickEvent(object sender, object e) //Добавления события для делегата DispatcherTimer
         {
             if (pomodoro.Time <= TimeSpan.Zero)
             {
@@ -37,7 +37,7 @@ namespace Pomodoro.View
 
         }
 
-        private void StartWork(object sender, object e)
+        private void StartWork(object sender, object e) //Логика события старта режима работы таймера
         {
             pomodoro.CurrentStatus = Status.Working;
             try
@@ -53,7 +53,7 @@ namespace Pomodoro.View
             pomodoro.Time = pomodoro.Work;
         }
 
-        private void StartRest(object sender, object e)
+        private void StartRest(object sender, object e) //Логика события старта режима отдыха таймера
         {
             pomodoro.CurrentStatus = Status.Resting;
 
@@ -69,7 +69,7 @@ namespace Pomodoro.View
             pomodoro.Time = pomodoro.Rest;
         }
 
-        private void StopResume(object sender, object e)
+        private void StopResume(object sender, object e)//Логика события воспроизведения и приостановки таймера
         {
             if (pomodoro.Active)
             {
@@ -83,11 +83,11 @@ namespace Pomodoro.View
             }
         }
 
-        private void Reset(object sender, object e)
+        private void Reset(object sender, object e) //Логика события сброса таймера
         {
             pomodoro.Time = pomodoro.CurrentStatus == Status.Working ? pomodoro.Work : pomodoro.Rest;
         }
-        private void PlaySound()
+        private void PlaySound() //Функция для простого воспроизведение звука
         {
             SoundPlayer sound = new SoundPlayer(@"C:\Windows\Media\Alarm01.wav");
             try
