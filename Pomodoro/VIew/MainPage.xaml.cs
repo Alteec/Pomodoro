@@ -96,7 +96,6 @@ namespace Pomodoro.View
             catch
             {
                 MessageBox.Show($"No sound");
-
             }
 
         }

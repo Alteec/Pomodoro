@@ -20,7 +20,7 @@ namespace Pomodoro.Model
         private TimeSpan _work  = new TimeSpan(0, 25, 0);
         private TimeSpan _rest= new TimeSpan(0, 5, 0);
         private Status _currentStatus  = Status.Working;
-        public TimeSpan _time= new TimeSpan(0, 0, 0);
+        private TimeSpan _time= new TimeSpan(0, 0, 0);
   
         public bool Active  //Флаг активности таймера
         {
