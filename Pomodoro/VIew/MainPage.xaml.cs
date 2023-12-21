@@ -31,6 +31,7 @@ namespace Pomodoro.View
             if (!pomodoro.Active)
             {
                 timer.Stop();
+                return;
             }
             pomodoro.Time = pomodoro.Time.Add(TimeSpan.FromSeconds(-1));
 
