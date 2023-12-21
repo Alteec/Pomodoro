@@ -21,7 +21,8 @@ namespace Pomodoro.Model
         private TimeSpan _rest= new TimeSpan(0, 5, 0);
         private Status _currentStatus  = Status.Working;
         public TimeSpan _time= new TimeSpan(0, 0, 0);
-        public bool Active
+  
+        public bool Active  //Флаг активности таймера
         {
             get
             {
@@ -34,7 +35,7 @@ namespace Pomodoro.Model
             }
         }
 
-        public TimeSpan Work
+        public TimeSpan Work //Таймер работы
         {
             get
             {
@@ -46,7 +47,7 @@ namespace Pomodoro.Model
                 OnPropertyChanged("Work");
             }
         }
-        public TimeSpan Rest
+        public TimeSpan Rest //Таймер отдыха
         {
             get
             {
@@ -58,7 +59,7 @@ namespace Pomodoro.Model
                 OnPropertyChanged("Rest");
             }
         }
-        public TimeSpan Time
+        public TimeSpan Time //Текущее время
         {
             get
             {
@@ -71,7 +72,7 @@ namespace Pomodoro.Model
             }
         }
 
-        public Status CurrentStatus
+        public Status CurrentStatus //Статус(работа или отдых)
         {
             get
             {
@@ -93,5 +94,5 @@ namespace Pomodoro.Model
             }
         }
 
-    }
+    }   
 }

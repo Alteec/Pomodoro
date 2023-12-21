@@ -45,7 +45,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  Foreground="ForestGreen" FontSize="48" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Pomodoro</TextBlock>
-        <Border Background="Tomato" CornerRadius="140" BorderBrush="Tomato" BorderThickness="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="230" Height="230">
+        <Border Background="Tomato" CornerRadius="140" BorderThickness="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="230" Height="230">
 
             <TextBlock  FontWeight="Bold"   Name="Time" Text="{Binding Time}" VerticalAlignment="Center" HorizontalAlignment="Center"
  FontSize="48"  Foreground="White">

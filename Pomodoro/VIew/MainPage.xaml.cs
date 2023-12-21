@@ -15,16 +15,16 @@ namespace Pomodoro.View
         {
             InitializeComponent();
             timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Tick += Tick;
+            timer.Tick += TickEvent;
             DataContext = pomodoro;
         }
-        void Tick(object sender, object e)
+        private void TickEvent(object sender, object e)
         {
             if (pomodoro.Time <= TimeSpan.Zero)
             {
                 timer.Stop();
                 PlaySound();
-                MessageBox.Show($"{pomodoro.CurrentStatus} is finished", "test");
+                MessageBox.Show($"{pomodoro.CurrentStatus} is finished", "Finish");
                 pomodoro.Active = !pomodoro.Active;
                 pomodoro.Time = pomodoro.CurrentStatus == Status.Working ? pomodoro.Work : pomodoro.Rest;
             }
@@ -36,7 +36,7 @@ namespace Pomodoro.View
 
         }
 
-        private void StartWork(object sender, RoutedEventArgs e)
+        private void StartWork(object sender, object e)
         {
             pomodoro.CurrentStatus = Status.Working;
             try
@@ -52,7 +52,7 @@ namespace Pomodoro.View
             pomodoro.Time = pomodoro.Work;
         }
 
-        private void StartRest(object sender, RoutedEventArgs e)
+        private void StartRest(object sender, object e)
         {
             pomodoro.CurrentStatus = Status.Resting;
 
@@ -68,7 +68,7 @@ namespace Pomodoro.View
             pomodoro.Time = pomodoro.Rest;
         }
 
-        private void StopResume(object sender, RoutedEventArgs e)
+        private void StopResume(object sender, object e)
         {
             if (pomodoro.Active)
             {
@@ -82,14 +82,23 @@ namespace Pomodoro.View
             }
         }
 
-        private void Reset(object sender, RoutedEventArgs e)
+        private void Reset(object sender, object e)
         {
             pomodoro.Time = pomodoro.CurrentStatus == Status.Working ? pomodoro.Work : pomodoro.Rest;
         }
         private void PlaySound()
         {
             SoundPlayer sound = new SoundPlayer(@"C:\Windows\Media\Alarm01.wav");
-            sound.Play();
+            try
+            {
+                sound.Play();
+            }
+            catch
+            {
+                MessageBox.Show($"No sound");
+
+            }
+
         }
     }
 }
